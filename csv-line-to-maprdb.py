@@ -15,9 +15,9 @@ if len(username) == 0:
 password = getpass.getpass(prompt = "Password [maprmapr]:")
 if len(password) == 0:
   password="maprmapr"
-tbl_path = raw_input("Table path [/demo-tables/business]:")
+tbl_path = raw_input("Table path [/demo-tables/timeseries]:")
 if len(tbl_path) == 0:
-  tbl_path="/demo-tables/business"
+  tbl_path="/demo-tables/timeseries"
 
 
 #Create a connection to data access server
@@ -25,10 +25,10 @@ connection_str = "{}:5678?auth=basic;user={};password={};ssl=false".format(host,
 connection = ConnectionFactory.get_connection(connection_str=connection_str)
 
 # Get a store and assign it as a DocumentStore object
-if connection.is_store_exists(store_path=tbl):
-    document_store = connection.get_store(store_path=tbl)
+if connection.is_store_exists(store_path=tbl_path):
+    document_store = connection.get_store(store_path=tbl_path)
 else:
-    document_store = connection.create_store(store_path=tbl)
+    document_store = connection.create_store(store_path=tbl_path)
 
 
 i=0
@@ -52,7 +52,7 @@ with open("10Simoutput.csv") as f:
     document_store.insert_or_replace(doc=dict(row), field_as_key="Date")  
     i=i+1
     t = time.time() - t
-    print("%4.1f doc per second" % (1 /t), end='\r')
+    print("%4.1f doc per second" % (1 /t))
 
   print('\n{} documents written'.format(i))
 
