@@ -31,7 +31,7 @@ else:
     document_store = connection.create_store(store_path=tbl)
 
 
-i=1
+i=0
 
 #Open the file
 with open("10Simoutput.csv") as f:
@@ -54,6 +54,6 @@ with open("10Simoutput.csv") as f:
     t = time.time() - t
     print("%4.1f doc per second" % (1 /t), end='\r')
 
-  print('\n{} documents written'.format(i))i
+  print('\n{} documents written'.format(i))
 
 connection.close()  
