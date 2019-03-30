@@ -56,7 +56,7 @@ with open(source_file) as f:
     i=i+1
     t = time.time() - t
     #print("%4.1f doc per second" % (1 /t))
-    sys.stdout.write("\r %4.1f doc per second \n % docs written" % (1/t), %i)
+    sys.stdout.write("\r %4.1f doc per second \n %l docs written" % (1/t, i))
     sys.stdout.flush()    
 
   print('\n{} documents written'.format(i))
