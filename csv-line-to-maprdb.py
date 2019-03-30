@@ -55,8 +55,9 @@ with open(source_file) as f:
     document_store.insert_or_replace(doc=dict(row), _id=row['Date'], field_as_key="Date")  
     i=i+1
     t = time.time() - t
-    print("%4.1f doc per second" % (1 /t))
-    sys.stdout.write("\r")
+    #print("%4.1f doc per second" % (1 /t))
+    sys.stdout.write("\r %4.1f doc per second" % (1/t))
+    sys.stdout.flush()    
 
   print('\n{} documents written'.format(i))
 
