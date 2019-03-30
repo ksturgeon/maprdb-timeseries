@@ -34,7 +34,7 @@ else:
     document_store = connection.create_store(store_path=tbl_path)
 
 
-i=1
+i=0
 
 #Open the file
 with open(source_file) as f:
