@@ -18,6 +18,9 @@ if len(password) == 0:
 tbl_path = raw_input("Table path [/demo-tables/timeseries]:")
 if len(tbl_path) == 0:
   tbl_path="/demo-tables/timeseries"
+source_file = raw_input("Input File [10Simoutput.csv]:")
+if len(source_file) == 0:
+  source_file="10Simoutput.csv"
 
 
 #Create a connection to data access server
@@ -34,7 +37,7 @@ else:
 i=0
 
 #Open the file
-with open("10Simoutput.csv") as f:
+with open(source_file) as f:
   reader = csv.DictReader(f)
   
   t = time.time()
