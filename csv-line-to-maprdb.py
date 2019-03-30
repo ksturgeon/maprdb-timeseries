@@ -49,7 +49,7 @@ with open("10Simoutput.csv") as f:
 
     #print(json.dumps(dict(row)))
     #Write document
-    document_store.insert_or_replace(doc=dict(row), field_as_key="Date")  
+    document_store.insert_or_replace(doc=dict(row), _id=row['Date'], field_as_key="Date")  
     i=i+1
     t = time.time() - t
     print("%4.1f doc per second" % (1 /t))
