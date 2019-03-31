@@ -52,13 +52,16 @@ with open(source_file) as f:
     #modify the Date string to a unix epoch
     row['Date'] = datetime.strptime(row['Date'], format).strftime('%s')    
 
+    d = dict(row)
+    d['_id'] = row['Date']
+
     #Batch documents ten at a time
     if x<10:
-      document_list.append(dict(row))
+      document_list.append(d)
       x=x+1
     else:
       #Write document
-      document_store.insert_or_replace(doc_stream=document_list, _id=row['Date'], field_as_key="Date")
+      document_store.insert_or_replace(doc_stream=document_list)
       x=0
       document_list = []  
 
