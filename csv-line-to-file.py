@@ -21,12 +21,12 @@ with open("10Simoutput.csv") as f:
       row['Date'] = datetime.strptime(row['Date'], format).strftime('%s')    
       #print(row['Date'])
 
+      d=dict(row)
+      d['_id']=row['Date']
       #print(json.dumps(dict(row)))
-      ofile.write(json.dumps(dict(row)))
+      ofile.write(json.dumps(d))
       
       #time.sleep(1) 
       i=i+1
-      t = time.time() - t
-      print("%4.1f doc per second" % (1 /t), end='\r')
 
   print('\n{} documents written'.format(i))  
