@@ -55,10 +55,11 @@ with open(source_file) as f:
     #Batch documents ten at a time
     if x<10:
       document_list.append(dict(row))
+      x=x+1
     else:
       #Write document
       document_store.insert_or_replace(doc_stream=document_list, _id=row['Date'], field_as_key="Date")
-      x=x+1
+      x=0
       document_list = []  
 
     t = time.time() - t
