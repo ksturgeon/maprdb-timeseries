@@ -1,5 +1,6 @@
 #! /bin/bash
 
+sudo pip install maprdb-python-client
 #This assumes you have maprcli
 
 #set up volumes
