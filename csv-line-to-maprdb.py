@@ -38,7 +38,7 @@ i=0
 
 #Open the file
 with open(source_file) as f:
-  reader = csv.DictReader(f)
+  reader = csv.DictReader(f, skipinitialspace=True, delimiter=',', quoting=csv.QUOTE_NONE)
   
   t = time.time()
   for row in reader:

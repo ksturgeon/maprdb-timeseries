@@ -9,7 +9,7 @@ i=1
 
 #Open the file
 with open("10Simoutput.csv") as f:
-  reader = csv.DictReader(f)
+  reader = csv.DictReader(f, skipinitialspace=True, delimiter=',', quoting=csv.QUOTE_NONE)
   with open("10Simoutput.json", "w+") as ofile:
     t = time.time()
     for row in reader:
