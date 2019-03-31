@@ -66,7 +66,7 @@ with open(source_file) as f:
       document_list = []  
 
     t = time.time() - t
-    sys.stdout.write("\r %4.1f docs per second" % (1/t))
+    sys.stdout.write("\r %4.1f docs per second" % (10/t))
     sys.stdout.flush()    
 
   print('\n{} documents written'.format(i))
