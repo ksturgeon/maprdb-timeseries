@@ -18,7 +18,7 @@ hadoop fs -rm -f /demo-tables/timeseries
 # Set up DB tables demo bits
 
 #Create three tables we'll load later
-maprcli table create -path /demo-tables/timeseries -tabletype json
+maprcli table create -path /demo-tables/timeseries -tabletype json -regionsizemb 256
 #maprcli table create -path /demo-tables/business -tabletype json
 #maprcli table create -path /demo-tables/user -tabletype json
 #maprcli table create -path /demo-tables/review -tabletype json
